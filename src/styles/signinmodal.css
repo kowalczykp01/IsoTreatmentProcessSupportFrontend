@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    border: 2px solid #d31515;
+    /*border: 2px solid #d31515;*/
 }
 
 .login-modal-title {
@@ -78,7 +78,7 @@
     position: fixed;
     align-items: center;
     justify-content: center;
-    border: 2px solid #d31515;
+    /*border: 2px solid #d31515;*/
 }
 
 .login-signin-btn {
