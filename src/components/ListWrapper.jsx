@@ -13,7 +13,7 @@ export const ListWrapper = () => {
     const [elements, setElements] = useState([]);
     const token = Cookies.get('token');
     var decodedToken = jwtDecode(token);
-    var id = decodedToken[
+    var userId = decodedToken[
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
     ];
     const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ export const ListWrapper = () => {
     const fetchData = async () => {
         try {
             const response = await fetch(
-                `https://localhost:7242/api/entry/user/` + id,
+                `https://localhost:7242/api/entry/user/` + userId,
                 {
                     method: "GET",
                     headers: {
@@ -59,7 +59,7 @@ export const ListWrapper = () => {
         try {
             const updatedFormData = { ...formData, Content: element };
             setFormData(updatedFormData);
-            const response = await fetch('https://localhost:7242/api/entry/user/' + id, {
+            const response = await fetch('https://localhost:7242/api/entry/user/' + userId, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -81,8 +81,26 @@ export const ListWrapper = () => {
         }
     }
 
-    const deleteElement = id => {
-        setElements(elements.filter(element => element.id !== id))
+    const deleteElement = async (id) => {
+        try {
+            const response = await fetch('https://localhost:7242/api/entry/' + id, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            });
+
+            if (response.ok) {
+                console.log('Usunięto wpis!');
+                setElements(elements.filter(element => element.id !== id))
+                console.log(elements);
+            } else {
+                console.error('Błąd podczas usuwania wpisu');
+            }
+        } catch (error) {
+            console.error('Wystąpił błąd:', error);
+        }        
     }
 
     const editElement = id => {
