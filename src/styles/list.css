@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-.App {
-  text-align: center;
-}
-
 h1 {
   color: #fff;
   margin-bottom: 0.5rem;
@@ -16,9 +12,9 @@ h1 {
 
 .EntryListWrapper {
   background: #1F2233;
-  margin-top: 5rem;
+  margin-top: 3rem;
   padding: 2rem;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .EntryListForm {

@@ -57,6 +57,34 @@
     cursor: pointer;
 }
 
+.dashboard-left{
+    position: absolute;
+    top: 10%;
+    height: 90%;
+    width: 32.3%;
+    left: 0.5%;
+    /*border: 2px solid #d31515;*/
+}
+
+.dashboard-center{
+    position: absolute;
+    top: 10%;
+    height: 90%;
+    width: 32.3%;
+    left: 33.3%;
+    /*border: 2px solid #d31515;*/
+}
+
+.dashboard-right{
+    position: absolute;
+    top: 10%;
+    height: 90%;
+    width: 32.3%;    
+    left: 66.1%;
+    right: 0.5%;
+    /*border: 2px solid #d31515;*/
+}
+
 body {
     background-color: #475284;
     position: fixed;
