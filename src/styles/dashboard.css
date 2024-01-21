@@ -41,7 +41,6 @@
     top: 50%;
     right: 0.5%;
     transform: translate(0, -50%);
-    /*border: 2px solid #d31515;*/
     display: flex;
     width: 274px;
     height: 58px;
@@ -55,6 +54,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 48px;
+    cursor: pointer;
 }
 
 body {
