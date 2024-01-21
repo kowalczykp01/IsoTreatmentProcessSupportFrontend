@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/list.css";
 
 export const EditListForm = ({ editElement, entry }) => {
-    const [value, setValue] = useState(entry.entry)
+    const [value, setValue] = useState(entry.entry.substring(13))
 
     const handleSubmit = e => {
         e.preventDefault();

@@ -16,10 +16,6 @@ export const ListWrapper = () => {
     var userId = decodedToken[
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
     ];
-    const [formData, setFormData] = useState({
-        "Content": "",
-        "Date": new Date()
-    });
 
     const fetchData = async () => {
         try {
@@ -39,7 +35,7 @@ export const ListWrapper = () => {
                 console.log(data);
                 setElements(data.map(entry => ({
                     id: entry.id,
-                    entry: "[" + moment(entry.date).format('LL') + "] " + entry.content,
+                    entry: "[" + moment(entry.date).format('L') + "] " + entry.content,
                     isEditing: false
                 })));
             } else {
@@ -57,21 +53,22 @@ export const ListWrapper = () => {
     const addElement = async (element) => {
 
         try {
-            const updatedFormData = { ...formData, Content: element };
-            setFormData(updatedFormData);
             const response = await fetch('https://localhost:7242/api/entry/user/' + userId, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
-                body: JSON.stringify(updatedFormData),
+                body: JSON.stringify({
+                    "Content": element,
+                    "Date": new Date()
+                }),
             });
 
             if (response.ok) {
                 console.log('Dodano do bazy!');
-                var entryId = await response.text();
-                setElements([...elements, { id: entryId, entry: "[" + moment(formData.Date).format('LL') + "] " + element, isEditing: false }]);
+                const { id, content, date } = await response.json();
+                setElements([...elements, { id: id, entry: "[" + moment(date).format('L') + "] " + content, isEditing: false }]);
                 console.log(elements);
             } else {
                 console.error('Błąd podczas dodawania wpisu');
@@ -100,7 +97,7 @@ export const ListWrapper = () => {
             }
         } catch (error) {
             console.error('Wystąpił błąd:', error);
-        }        
+        }
     }
 
     const editElement = id => {
@@ -108,8 +105,30 @@ export const ListWrapper = () => {
             { ...element, isEditing: !element.isEditing } : element))
     }
 
-    const editEntry = (entry, id) => {
-        setElements(elements.map(element => element.id === id ? { ...element, entry, isEditing: !element.isEditing } : element))
+    const editEntry = async(entry, id) => {
+
+        try {
+            const response = await fetch('https://localhost:7242/api/entry/' + id, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({
+                    "Content": entry,
+                })
+            });
+
+            if (response.ok) {
+                console.log('Zaktualizowano wpis!');
+                const { content, date }  = await response.json();
+                setElements(elements.map(element => element.id === id ? { ...element, entry: "[" + moment(date).format('L') + "] " + content, isEditing: !element.isEditing } : element))
+            } else {
+                console.error('Błąd podczas aktualizowania wpisu');
+            }
+        } catch (error) {
+            console.error('Wystąpił błąd:', error);
+        }
     }
     return (
         <div className="ListWrapper">
