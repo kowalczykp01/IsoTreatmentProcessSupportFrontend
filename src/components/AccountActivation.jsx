@@ -21,8 +21,9 @@ const AccountActivation = () => {
                     console.log('Email został potwierdzony');
                     setActivationStatus('success');
                 } else {
-                    console.error('Błąd podczas aktywacji konta.');
-                    setActivationStatus('error');
+                    if (response.text() === 'Email has already been confirmed')
+                    console.error('Email został już wcześniej potwierdzony');
+                    setActivationStatus('alreadyConfirmed');
                 }
             } catch (error) {
                 console.error('Wystąpił błąd: ', error);
@@ -38,11 +39,16 @@ const AccountActivation = () => {
             <h1 className="thanks-for-your-registration">
                 {activationStatus === 'success'
                     ? 'Email został potwierdzony'
-                    : 'Wystąpił błąd podczas aktywacji konta.'}
+                    : 'Wystąpił błąd.'}
             </h1>
             {activationStatus === 'success' && (
                 <p className="email-confirmation-content">
                     Twoje konto zostało aktywowane. Możesz się teraz zalogować
+                </p>
+            )}
+            {activationStatus === 'alreadyConfirmed' && (
+                <p className="email-confirmation-content">
+                    Email został już wcześniej potwierdzony.
                 </p>
             )}
             {activationStatus === 'error' && (
