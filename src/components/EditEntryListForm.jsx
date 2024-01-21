@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/list.css";
 
-export const EditListForm = ({ editElement, entry }) => {
+export const EditEntryListForm = ({ editElement, entry }) => {
     const [value, setValue] = useState(entry.entry.substring(13))
 
     const handleSubmit = e => {
@@ -12,7 +12,7 @@ export const EditListForm = ({ editElement, entry }) => {
         setValue("");
     }
     return (
-        <form className="ListForm" onSubmit={handleSubmit}>
+        <form className="EntryListForm" onSubmit={handleSubmit}>
             <input type="text" className="list-input" value={value}
                 placeholder="Aktualizuj przypomnienie" onChange={(e) => setValue(e.target.value)} />
             <button type="submit" className="list-btn">Aktualizuj</button>

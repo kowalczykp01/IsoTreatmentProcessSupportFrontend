@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
-export const Element = ({ entry, deleteElement, editElement }) => {
+export const EntryElement = ({ entry, deleteElement, editElement }) => {
     return (
         <div className="Element">
             <p className="element-text">{entry.entry}</p>

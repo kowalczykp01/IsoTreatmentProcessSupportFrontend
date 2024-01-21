@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { ListForm } from "./ListForm";
-import { Element } from "./Element";
-import { EditListForm } from "./EditListForm";
+import { ReminderListForm } from "./ReminderListForm";
+import { ReminderElement } from "./ReminderElement";
+import { EditReminderListForm } from "./EditReminderListForm";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "js-cookie";
 import moment from 'moment/min/moment-with-locales';
 
 
 
-export const ListWrapper = () => {
+export const ReminderListWrapper = () => {
     moment.locale('pl');
     const [elements, setElements] = useState([]);
     const token = Cookies.get('token');
@@ -17,10 +17,10 @@ export const ListWrapper = () => {
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
     ];
 
-    const fetchData = async () => {
+    const fetchReminderData = async () => {
         try {
             const response = await fetch(
-                `https://localhost:7242/api/entry/user/` + userId,
+                `https://localhost:7242/api/reminder/user/` + userId,
                 {
                     method: "GET",
                     headers: {
@@ -33,9 +33,9 @@ export const ListWrapper = () => {
             if (response.ok) {
                 const data = await response.json();
                 console.log(data);
-                setElements(data.map(entry => ({
-                    id: entry.id,
-                    entry: "[" + moment(entry.date).format('L') + "] " + entry.content,
+                setElements(data.map(reminder => ({
+                    id: reminder.id,
+                    reminder: reminder.time,
                     isEditing: false
                 })));
             } else {
@@ -47,31 +47,30 @@ export const ListWrapper = () => {
     };
 
     useEffect(() => {
-        fetchData();
+        fetchReminderData();
     }, []);
 
     const addElement = async (element) => {
 
         try {
-            const response = await fetch('https://localhost:7242/api/entry/user/' + userId, {
+            const response = await fetch('https://localhost:7242/api/reminder/user/' + userId, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
                 body: JSON.stringify({
-                    "Content": element,
-                    "Date": new Date()
-                }),
+                    "time": element,
+                })
             });
 
             if (response.ok) {
                 console.log('Dodano do bazy!');
-                const { id, content, date } = await response.json();
-                setElements([...elements, { id: id, entry: "[" + moment(date).format('L') + "] " + content, isEditing: false }]);
+                const { id, time } = await response.json();
+                setElements([...elements, { id: id, time: time, isEditing: false }]);
                 console.log(elements);
             } else {
-                console.error('Błąd podczas dodawania wpisu');
+                console.error('Błąd podczas dodawania przypomnienia');
             }
         } catch (error) {
             console.error('Wystąpił błąd:', error);
@@ -80,7 +79,7 @@ export const ListWrapper = () => {
 
     const deleteElement = async (id) => {
         try {
-            const response = await fetch('https://localhost:7242/api/entry/' + id, {
+            const response = await fetch('https://localhost:7242/api/reminder/' + id, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,11 +88,11 @@ export const ListWrapper = () => {
             });
 
             if (response.ok) {
-                console.log('Usunięto wpis!');
+                console.log('Usunięto przypomnienie!');
                 setElements(elements.filter(element => element.id !== id))
                 console.log(elements);
             } else {
-                console.error('Błąd podczas usuwania wpisu');
+                console.error('Błąd podczas usuwania przypomnienia');
             }
         } catch (error) {
             console.error('Wystąpił błąd:', error);
@@ -105,39 +104,39 @@ export const ListWrapper = () => {
             { ...element, isEditing: !element.isEditing } : element))
     }
 
-    const editEntry = async(entry, id) => {
+    const editReminder = async (reminder, id) => {
 
         try {
-            const response = await fetch('https://localhost:7242/api/entry/' + id, {
+            const response = await fetch('https://localhost:7242/api/reminder/' + id, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
                 body: JSON.stringify({
-                    "Content": entry,
+                    "Time": reminder,
                 })
             });
 
             if (response.ok) {
-                console.log('Zaktualizowano wpis!');
-                const { content, date }  = await response.json();
-                setElements(elements.map(element => element.id === id ? { ...element, entry: "[" + moment(date).format('L') + "] " + content, isEditing: !element.isEditing } : element))
+                console.log('Zaktualizowano przypomnienie!');
+                const { time } = await response.json();
+                setElements(elements.map(element => element.id === id ? { ...element, reminder: time, isEditing: !element.isEditing } : element))
             } else {
-                console.error('Błąd podczas aktualizowania wpisu');
+                console.error('Błąd podczas aktualizowania przypomnienia');
             }
         } catch (error) {
             console.error('Wystąpił błąd:', error);
         }
     }
     return (
-        <div className="ListWrapper">
-            <ListForm addElement={addElement} />
+        <div className="EntryListWrapper">
+            <ReminderListForm addElement={addElement} />
             {elements.map((element, index) => (
                 element.isEditing ? (
-                    <EditListForm editElement={editEntry} entry={element} />
+                    <EditReminderListForm editElement={editReminder} reminder={element} />
                 ) : (
-                    <Element entry={element} key={index}
+                    <ReminderElement reminder={element} key={index}
                         deleteElement={deleteElement}
                         editElement={editElement} />
                 )
