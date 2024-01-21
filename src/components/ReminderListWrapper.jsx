@@ -67,7 +67,7 @@ export const ReminderListWrapper = () => {
             if (response.ok) {
                 console.log('Dodano do bazy!');
                 const { id, time } = await response.json();
-                setElements([...elements, { id: id, time: time, isEditing: false }]);
+                setElements([...elements, { id: id, reminder: time, isEditing: false }]);
                 console.log(elements);
             } else {
                 console.error('Błąd podczas dodawania przypomnienia');
