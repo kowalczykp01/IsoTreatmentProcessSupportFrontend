@@ -3,7 +3,8 @@ import Auth from './components/Auth.jsx'
 import EmailConfirmation from './components/EmailConfirmation.jsx';
 import AccountActivation from './components/AccountActivation.jsx';
 import Dashboard from './components/Dashboard.jsx';
-import { ListWrapper } from './components/ListWrapper.jsx';
+import { EntryListWrapper } from './components/EntryListWrapper.jsx';
+import { ReminderListWrapper } from './components/ReminderListWrapper.jsx';
 
 export default function App() {
     return (
@@ -11,9 +12,8 @@ export default function App() {
             <Routes>
                 <Route path="/auth" element={<Auth />} />
                 <Route path="/email-confirmation" element={<EmailConfirmation />} />
-                <Route path="/activateAccount" element = {<AccountActivation />} />
-                <Route path="/dashboard" element = {<Dashboard />} />
-                <Route path="/list" element = {<ListWrapper />} />
+                <Route path="/activateAccount" element={<AccountActivation />} />
+                <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
         </Router>
     )
