@@ -1,0 +1,17 @@
+.treatmentprocessinfo-wrapper {
+    background: #1F2233;
+    margin-top: 3rem;
+    padding: 3rem;
+    border-radius: 8px;
+  }
+
+  ol {
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
