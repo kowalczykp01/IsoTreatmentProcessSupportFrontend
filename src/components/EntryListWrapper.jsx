@@ -11,21 +11,21 @@ import moment from 'moment/min/moment-with-locales';
 export const EntryListWrapper = () => {
     moment.locale('pl');
     const [elements, setElements] = useState([]);
-    const token = Cookies.get('token');
+    /*const token = Cookies.get('token');
     var decodedToken = jwtDecode(token);
     var userId = decodedToken[
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
-    ];
+    ];*/
 
     const fetchEntryData = async () => {
         try {
             const response = await fetch(
-                `https://localhost:7242/api/entry/user/` + userId,
+                `https://localhost:7242/api/entry/`,
                 {
                     method: "GET",
+                    credentials: 'include',
                     headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
                     },
                 }
             );
@@ -53,11 +53,11 @@ export const EntryListWrapper = () => {
     const addElement = async (element) => {
 
         try {
-            const response = await fetch('https://localhost:7242/api/entry/user/' + userId, {
+            const response = await fetch('https://localhost:7242/api/entry/', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     "Content": element,
@@ -82,9 +82,9 @@ export const EntryListWrapper = () => {
         try {
             const response = await fetch('https://localhost:7242/api/entry/' + id, {
                 method: 'DELETE',
+                credentials: 'include',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
+                    'Content-Type': 'application/json'
                 }
             });
 
@@ -110,9 +110,9 @@ export const EntryListWrapper = () => {
         try {
             const response = await fetch('https://localhost:7242/api/entry/' + id, {
                 method: 'PUT',
+                credentials: 'include',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     "Content": entry,

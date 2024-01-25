@@ -11,21 +11,21 @@ import moment from 'moment/min/moment-with-locales';
 export const ReminderListWrapper = () => {
     moment.locale('pl');
     const [elements, setElements] = useState([]);
-    const token = Cookies.get('token');
+    /*const token = Cookies.get('token');
     var decodedToken = jwtDecode(token);
     var userId = decodedToken[
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
-    ];
+    ];*/
 
     const fetchReminderData = async () => {
         try {
             const response = await fetch(
-                `https://localhost:7242/api/reminder/user/` + userId,
+                `https://localhost:7242/api/reminder/`,
                 {
                     method: "GET",
+                    credentials: 'include',
                     headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
                     },
                 }
             );
@@ -53,11 +53,11 @@ export const ReminderListWrapper = () => {
     const addElement = async (element) => {
 
         try {
-            const response = await fetch('https://localhost:7242/api/reminder/user/' + userId, {
+            const response = await fetch('https://localhost:7242/api/reminder/', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     "time": element,
@@ -81,9 +81,9 @@ export const ReminderListWrapper = () => {
         try {
             const response = await fetch('https://localhost:7242/api/reminder/' + id, {
                 method: 'DELETE',
+                credentials: 'include',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
+                    'Content-Type': 'application/json'
                 }
             });
 
@@ -109,9 +109,9 @@ export const ReminderListWrapper = () => {
         try {
             const response = await fetch('https://localhost:7242/api/reminder/' + id, {
                 method: 'PUT',
+                credentials: 'include',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + token
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     "Time": reminder,

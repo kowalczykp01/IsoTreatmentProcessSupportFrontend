@@ -9,11 +9,11 @@ import { jwtDecode } from "jwt-decode";
 
 const Dashboard = () => {
 
-    const token = Cookies.get('token');
+    /*const token = Cookies.get('token');
     var decodedToken = jwtDecode(token);
     var userName = decodedToken[
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-    ];
+    ];*/
 
     const logout = (e) => {
         Cookies.remove('token');
@@ -22,7 +22,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard-mainwrapper">
             <div className="dashboard-header">
-                <p className="dashboard-myaccount">Cześć, {userName}!</p>
+                <p className="dashboard-myaccount">Moje konto</p>
                 <Link to="/auth">
                     <p className="dashboard-logout" onClick={logout}>Wyloguj się</p>
                 </Link>

@@ -4,11 +4,11 @@ import Cookies from "js-cookie";
 import "../styles/treatmentprocessinfo.css";
 
 export const TreatmentProcessInfo = () => {
-    const token = Cookies.get('token');
+    /*const token = Cookies.get('token');
     var decodedToken = jwtDecode(token);
     var userId = decodedToken[
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
-    ];
+    ];*/
 
     const [totalTreatmentDays, setTotalTreatmentDays] = useState(null);
     const [treatmentDaysPassed, setTreatmentDaysPassed] = useState(null);
@@ -17,12 +17,12 @@ export const TreatmentProcessInfo = () => {
     const fetchTreatmentData = async () => {
         try {
             const response = await fetch(
-                `https://localhost:7242/api/treatment-process/` + userId,
+                `https://localhost:7242/api/treatment-process/`,
                 {
                     method: "GET",
+                    credentials: 'include',
                     headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json"
                     },
                 }
             );
