@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  margin: auto 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -12,7 +12,6 @@ h1 {
 
 .EntryListWrapper {
   background: #1F2233;
-  margin-top: 3rem;
   padding: 2rem;
   border-radius: 8px;
 }

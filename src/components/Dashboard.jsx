@@ -27,13 +27,17 @@ const Dashboard = () => {
                     <p className="dashboard-logout" onClick={logout}>Wyloguj się</p>
                 </Link>
             </div>
-            <div className="dashboard-left">
-            <EntryListWrapper></EntryListWrapper>
-            </div>
-            <div className="dashboard-center">
-            <ReminderListWrapper></ReminderListWrapper>
-            </div>
-            <div className="dashboard-right"><TreatmentProcessInfo></TreatmentProcessInfo></div>                         
+            <div className="dashboard-main-content">
+                <div className="dashboard-main-content-element">
+                    <EntryListWrapper></EntryListWrapper>
+                </div>
+                <div className="dashboard-main-content-element"> 
+                    <ReminderListWrapper></ReminderListWrapper>
+                </div>
+                <div className="dashboard-main-content-element">
+                    <TreatmentProcessInfo></TreatmentProcessInfo>
+                </div>               
+            </div>              
         </div>
     );
 };
