@@ -15,8 +15,24 @@ const Dashboard = () => {
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
     ];*/
 
-    const logout = (e) => {
-        Cookies.remove('token');
+    const logout = async() => {
+        try {
+            const response = await fetch('https://localhost:7242/api/user/logout', {
+                method: 'POST',
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                console.log('Wylogowano pomyślnie');
+            } else {
+                console.error('Nie można wylogować');
+            }
+        } catch (error) {
+            console.error('Wystąpił błąd:', error);
+        }
     }
 
     return (
