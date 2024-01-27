@@ -1,16 +1,3 @@
-body {
-    background-color: #475284;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
 
 .title {
     position: fixed;
