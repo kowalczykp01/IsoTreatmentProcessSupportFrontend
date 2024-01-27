@@ -18,6 +18,7 @@ export const SignInModal = ({ onClose }) => {
         try {
             const response = await fetch('https://localhost:7242/api/user/login', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -26,8 +27,8 @@ export const SignInModal = ({ onClose }) => {
 
             if (response.ok) {
                 console.log('Logowanie powiodło się!');
-                const token = await response.text();
-                Cookies.set("token", token, { secure: true });
+                /*const token = await response.text();
+                Cookies.set("token", token, { secure: true });*/
                 onClose();
                 navigate('/dashboard');
             } else {
