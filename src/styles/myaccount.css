@@ -1,0 +1,56 @@
+.myaccount-header {
+    position: absolute;
+    margin: 0;
+    top: 2rem;
+    left: 50%;
+    transform: translate(-50%);
+    color: #ffffff;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.myaccount-form {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 7rem;
+}
+
+.myaccount-label {
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem;
+}
+
+.myaccount-input {
+    border-radius: 8px;
+    border: 2px solid;
+    border-color: #FFF;
+    background-color: #363D63;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .myaccount-form {
+        top: 5rem;
+    }
+
+    .myaccount-input {
+        display: block;
+        width: 100%;
+    }
+}
