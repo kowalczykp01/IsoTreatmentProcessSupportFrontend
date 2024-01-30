@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { jwtDecode } from "jwt-decode";
-import Cookies from "js-cookie";
 import "../styles/treatmentprocessinfo.css";
 
 export const TreatmentProcessInfo = () => {
-    /*const token = Cookies.get('token');
-    var decodedToken = jwtDecode(token);
-    var userId = decodedToken[
-        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
-    ];*/
+
 
     const [totalTreatmentDays, setTotalTreatmentDays] = useState(null);
     const [treatmentDaysPassed, setTreatmentDaysPassed] = useState(null);
@@ -47,6 +41,9 @@ export const TreatmentProcessInfo = () => {
     return (
         <div className="treatmentprocessinfo-wrapper">
             <ul>
+                <ol>
+                    <progress value={treatmentDaysPassed/totalTreatmentDays}></progress>
+                </ol>
                 <ol>Leczenie trwa {totalTreatmentDays} dni</ol>
                 <ol>Za Tobą {treatmentDaysPassed} dni</ol>
                 <ol>Pozostało {remainingTreatmentDays} dni</ol>
