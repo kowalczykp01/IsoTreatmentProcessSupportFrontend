@@ -1,7 +1,7 @@
 .myaccount-header {
     position: absolute;
     margin: 0;
-    top: 2rem;
+    top: 4rem;
     left: 50%;
     transform: translate(-50%);
     color: #ffffff;
@@ -13,11 +13,48 @@
     line-height: 30px;
 }
 
+.myaccount-top-bar{
+    background-color: #363D63;
+    position: absolute;
+    height: 3rem;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.myaccount-homepage{
+    position: absolute;
+    margin: 0;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: #ffffff;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.myaccount-logout{
+    position: absolute;
+    margin: 0;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #ffffff;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+}
+
 .myaccount-form {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    top: 7rem;
+    top: 9rem;
 }
 
 .myaccount-label {
@@ -30,6 +67,7 @@
 }
 
 .myaccount-input {
+    display: block;
     border-radius: 8px;
     border: 2px solid;
     border-color: #FFF;
@@ -44,13 +82,52 @@
     margin-top: 0.5rem;
 }
 
+.myaccount-button {
+    display: block;
+    border-radius: 8px;
+    border: 2px solid;
+    border-color: #FFF;
+    background-color: #363D63;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.myaccount-button-span{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
 @media screen and (min-width: 768px) {
     .myaccount-form {
-        top: 5rem;
+        top: 9rem;
     }
 
     .myaccount-input {
         display: block;
         width: 100%;
+    }
+
+    .myaccount-homepage{
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .myaccount-logout{
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .myaccount-top-bar{
+        top: 0;
+        height: 4rem;
+    }
+
+    .myaccount-header{
+        top: 5.5rem;
     }
 }
