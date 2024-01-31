@@ -14,7 +14,8 @@ export const SignInModal = ({ onClose }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSignIn = async () => {
+    const handleSignIn = async (e) => {
+        e.preventDefault();
         try {
             const response = await fetch('https://localhost:7242/api/user/login', {
                 method: 'POST',
@@ -42,12 +43,14 @@ export const SignInModal = ({ onClose }) => {
     return (
         <div className="login-modal">
             <p className="login-close" onClick={() => onClose()}>&times;</p>
-            <div className="login-modal-content">
                 <h1 className="login-modal-title">Logowanie</h1>
-                <input className="login-email-input" type="text" placeholder="Email" name="Email" onChange={handleChange} />
-                <input className="login-password-input" type="password" placeholder="Hasło" name="Password" onChange={handleChange} />
-                <button className="login-signin-btn" onClick={handleSignIn}>Zaloguj się</button>
-            </div>
+                <form className="login-form">
+                    <label className="login-label">Email</label>
+                    <input className="login-input" type="text"  name="Email" onChange={handleChange} />
+                    <label className="login-label">Hasło</label>
+                    <input className="login-input" type="password"  name="Password" onChange={handleChange} />
+                    <button className="login-button" onClick={handleSignIn}><span className="login-button-span">Zaloguj się</span></button>
+                </form>               
         </div>
     );
 };
