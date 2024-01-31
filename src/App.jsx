@@ -13,7 +13,7 @@ export default function App() {
                 <Route path="/email-confirmation" element={<EmailConfirmation />} />
                 <Route path="/activateAccount" element={<AccountActivation />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/myaccount" element={<MyAccount />}></Route>
+                <Route path="/myaccount" element={<MyAccount />} />
             </Routes>
         </Router>
     )
