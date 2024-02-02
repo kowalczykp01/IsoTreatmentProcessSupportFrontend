@@ -1,287 +1,116 @@
 .register-modal {
-    background-color: #FFFFFF;
+    background-color: #363D63;
     display: flex;
-    position: fixed;
-    top: 50%;
+    position: fixed;   
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    height: 85%;
+    top: 50vh;
+    width: 80vw;
+    height: 90vh;
+    overflow: auto;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    /*border: 2px solid #d31515;*/
-}
-
-.register-modal-header {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 10%;
-    align-items: center;
-    justify-content: center;
-    /*border: 2px solid #d31515;*/
-}
-
-.register-modal-content {
-    width: 100%;
-    top: 10%;
-    height: 90%;
-    display: flex;
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    /*border: 2px solid #d31515;*/
-
+    border: 2px solid #FFF;
 }
 
 .register-modal-title {
     position: absolute;
     display: flex;
-    top: 7%;
-    left: 50%;
-    transform: translate(-50%);
-    color: #363D63;
+    top: 4vh;
+    color: #fff;
     text-align: center;
     font-family: Montserrat;
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px;
-    /*border: 2px solid #d31515;*/
-
+    line-height: 36px;
 }
 
 .register-close {
     position: absolute;
     display: flex;
-    margin: 0;
-    top: 7%;
-    left: 0;
-    color: #363D63;
-    font-feature-settings: 'clig' off, 'liga' off;
+    top: 0.5rem;
+    left: 0.1rem;
+    color: #fff;
     font-family: Montserrat;
     font-size: 50px;
     line-height: 20px;
     font-style: normal;
-    font-weight: 600;
     cursor: pointer;
+    margin: 0;
 }
 
-.register-firstname-input {
+.register-form {
     position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-lastname-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-email-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-password-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-confirm-password-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-weight-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-climax-dose-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-daily-dose-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-mediaction-start-date-input {
-    position: absolute;
-    width: 82%;
-    height: 8%;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    gap: 8px;
-    border-radius: 8px;
-    border: 2px solid;
-    border-color: #363D63;
-    background-color: #FFF;
-    color: #363D63;
-    font-family: Montserrat;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-}
-
-.register-signup-btn {
-    position: absolute;
-    top: 90%;
-    height: 9%;
-    width: 84%;
     left: 50%;
     transform: translate(-50%);
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    background: #363D63;
-    color: #FFF;
-    text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
+    top: 11vh;
+}
+
+.register-label {
+    color: #fff;
     font-family: Montserrat;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px;
-    cursor: pointer;
+    line-height: 1rem;
+}
+
+.register-input {
+    display: block;
+    border-radius: 8px;
+    border: 2px solid;
+    border-color: #FFF;
+    background-color: #363D63;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.register-button{
+    display: block;
+    border-radius: 8px;
+    border: 2px solid;
+    border-color: #FFF;
+    background-color: #363D63;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.register-button-span{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .register-modal{
+        width: 25vw;
+        height: 95vh;
+    }
+
+    .register-form {
+        top: 10vh;
+    }
+
+    .register-input {
+        display: block;
+        width: 20vw;
+    }
+
+    .register-modal-title{
+        top: 4vh;
+    }
+
+
 }

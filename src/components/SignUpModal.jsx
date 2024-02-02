@@ -21,7 +21,8 @@ export const SignUpModal = ({ onClose }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch('https://localhost:7242/api/user/register', {
         method: 'POST',
@@ -45,23 +46,29 @@ export const SignUpModal = ({ onClose }) => {
 
   return (
     <div className="register-modal">
-      <div className="register-modal-header">
-        <p className="register-close" onClick={() => onClose()}>&times;</p>
-        <h1 className="register-modal-title">Rejestracja</h1>
-      </div>
-      <div className="register-modal-content">
-        <input className="register-firstname-input" type="text" placeholder="Imię" name="FirstName" onChange={handleChange} />
-        <input className="register-lastname-input" type="text" placeholder="Nazwisko" name="LastName" onChange={handleChange} />
-        <input className="register-email-input" type="text" placeholder="Email" name="Email" onChange={handleChange} />
-        <input className="register-password-input" type="password" placeholder="Hasło" name="Password" onChange={handleChange} />
-        <input className="register-confirm-password-input" type="password" placeholder="Powtórz hasło" name="ConfirmPassword" onChange={handleChange} />
-        <input className="register-weight-input" type="text" placeholder="Waga" name="Weight" onChange={handleChange} />
-        <input className="register-climax-dose-input" type="text" placeholder="Dawka kumulacyjna mg/kg m. c." name="ClimaxDoseInMiligramsPerKilogramOfBodyWeight" onChange={handleChange} />
-        <input className="register-daily-dose-input" type="text" placeholder="Dzienna dawka leku w mg" name="DailyDose" onChange={handleChange} />
-        <input className="register-mediaction-start-date-input" type="text" placeholder="Data rozpoczęcia kuracji"
-          onFocus={(e) => (e.target.type = "date")} name="MedicationStartDate" onChange={handleChange} />
-        <button className="register-signup-btn" onClick={handleSignUp}>Zarejestruj się</button>
-      </div>
+      <p className="register-close" onClick={() => onClose()}>&times;</p>
+                <h1 className="register-modal-title">Rejestracja</h1>
+                <form className="register-form">
+                    <label className="register-label">Imię</label>
+                    <input className="register-input" type="text"  name="FirstName" onChange={handleChange} />
+                    <label className="register-label">Nazwisko</label>
+                    <input className="register-input" type="text"  name="LastName" onChange={handleChange} />
+                    <label className="register-label">Email</label>
+                    <input className="register-input" type="text"  name="Email" onChange={handleChange} />
+                    <label className="register-label">Hasło</label>
+                    <input className="register-input" type="password"  name="Password" onChange={handleChange} />
+                    <label className="register-label">Potwierdź hasło</label>
+                    <input className="register-input" type="password"  name="ConfirmPassword" onChange={handleChange} />
+                    <label className="register-label">Waga</label>
+                    <input className="register-input" type="text"  name="Weight" onChange={handleChange} />
+                    <label className="register-label">Dawka kumulacyjna mg/kg m. c.</label>
+                    <input className="register-input" type="text"  name="ClimaxDoseInMiligramsPerKilogramOfBodyWeight" onChange={handleChange} />
+                    <label className="register-label">Dzienna dawka leku w mg</label>
+                    <input className="register-input" type="text"  name="DailyDose" onChange={handleChange} />
+                    <label className="register-label">Data rozpoczęcia kuracji</label>
+                    <input className="register-input" type="text"  name="MedicationStartDate" onChange={handleChange} onFocus={(e) => (e.target.type = "date")}/>
+                    <button className="register-button" onClick={handleSignUp}><span className="register-button-span">Zarejestruj się</span></button>
+                </form>
     </div>
   );
 };
