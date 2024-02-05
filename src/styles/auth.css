@@ -1,95 +1,72 @@
-
-.title {
-    position: fixed;
-    display: flex;
-    top: 10%;
+.auth-form{
+    position: absolute;
     left: 50%;
     transform: translate(-50%);
-    flex-direction: column;
-    justify-content: center;
+    top: 40vh;
+}
+
+.auth-title {
+    position: absolute;
+    top: 12vh;
+    left: 50%;
+    transform: translate(-50%);
     color: #1F2233;
     text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
     font-family: Montserrat;
-    font-size: 96px;
+    font-size: 4rem;
     font-style: normal;
-    font-weight: 700;
-    line-height: 52px;
+    font-weight: 600;
+}
+
+.auth-signupButton {
+    display: block;
+    height: 7vh;
+    width: 60vw;
+    border-radius: 8px;
+    border: 2px solid;
     border-color: #FFF;
+    background-color: #1F2233;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+.auth-span{
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    padding: 0.5rem;
 }
 
-.signupButton {
-    display: flex;
-    width: 49%;
-    height: auto;
-    padding: 3% 8%;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
+.auth-signinButton {
+    display: block;
+    height: 7vh;
+    width: 60vw;
+    border-radius: 8px;
+    border: 2px solid;
+    border-color: #FFF;
+    background-color: #363D63;
+    line-height: 2rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.auth-alreadyHaveAnAccountLabel {
+    display: block;
+    font-family: Montserrat;
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 600;
+    color: #FFF;
+}
+
+.auth-footerText {
     position: absolute;
-    top: 33%;
+    bottom: 8vh;
+    width: 100vw;
     left: 50%;
     transform: translate(-50%);
-    border-radius: 8px;
-    border: 1px solid #FFF;
-    background: #1F2233;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #FFF;
-    text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Montserrat;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    cursor: pointer;
-}
-
-.signinButton {
-    display: flex;
-    width: 49%;
-    height: auto;
-    padding: 3% 8%;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    position: absolute;
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%);
-    border-radius: 8px;
-    border: 1px solid #FFF;
-    background: #475284;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    color: #FFF;
-    text-align: center;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Montserrat;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    cursor: pointer;
-}
-
-.alreadyHaveAnAccountLabel {
-    width: auto;
-    top: 45.5%;
-    left: 25.5%;
-    position: absolute;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    color: #FFF;
-}
-
-.footerText {
-    top: 65%;
-    /*bottom: 18%;*/
-    position: absolute;
     color: #1F2233;
     text-align: center;
     font-feature-settings: 'clig' off, 'liga' off;
@@ -97,37 +74,32 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 600;
-    line-height: 16px;
+    line-height: 14px;
     /*border: 2px solid #d31515;*/
 }
 
-.mainwrapper {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%);
-    border-style: 2px;
-    /*border: 2px solid #000;*/
-    /*border: 2px solid #d31515;*/
-}
-
-
-@media (max-width: 600px) {
-    .mainwrapper {
-        width: 100%;
+@media screen and (min-width: 768px){
+    .auth-signupButton {
+        height: 9vh;
+        width: 23vw;
     }
-}
 
-@media (max-width: 768px) {
-    .mainwrapper {
-        width: 90%;
+    .auth-signinButton{
+        height: 9vh;
+        width: 23vw;
     }
-}
 
-@media (max-width: 992px) {
-    .mainwrapper {
-        width: 80%;
+    .auth-span{
+        font-size: 1.7rem;
     }
+
+    .auth-title{
+        font-size: 5rem;
+    }
+
+    .auth-footerText{
+        bottom: 10vh;
+        width: 65vw;
+    }
+
 }
