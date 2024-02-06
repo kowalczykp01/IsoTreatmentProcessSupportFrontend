@@ -35,24 +35,24 @@ const AccountActivation = () => {
     }, [token]);
 
     return (
-        <div className="email-confirmation-mainwrapper">
-            <h1 className="thanks-for-your-registration">
+        <div>
+            <h1 className="emailconfirmation-header">
                 {activationStatus === 'success'
                     ? 'Email został potwierdzony'
                     : 'Wystąpił błąd.'}
             </h1>
             {activationStatus === 'success' && (
-                <p className="email-confirmation-content">
+                <p className="emailconfirmation-content">
                     Twoje konto zostało aktywowane. Możesz się teraz zalogować
                 </p>
             )}
             {activationStatus === 'alreadyConfirmed' && (
-                <p className="email-confirmation-content">
+                <p className="emailconfirmation-content">
                     Email został już wcześniej potwierdzony.
                 </p>
             )}
             {activationStatus === 'error' && (
-                <p className="email-confirmation-content">
+                <p className="emailconfirmation-content">
                     Spróbuj ponownie lub skontaktuj się z supportem.
                 </p>
             )}
