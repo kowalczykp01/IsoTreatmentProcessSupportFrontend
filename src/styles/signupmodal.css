@@ -73,6 +73,15 @@
     margin-top: 0.5rem;
 }
 
+.register-invalid-field{
+    color: #f03737;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    margin-bottom: 0.5rem;
+}
+
 .register-button{
     display: block;
     border-radius: 8px;
