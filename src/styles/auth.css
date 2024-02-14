@@ -29,6 +29,7 @@
     line-height: 2rem;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    cursor: pointer;
 }
 .auth-span{
     color: #FFF;
@@ -50,6 +51,7 @@
     line-height: 2rem;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    cursor: pointer;
 }
 
 .auth-alreadyHaveAnAccountLabel {
