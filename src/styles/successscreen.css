@@ -1,0 +1,61 @@
+.success-screen-header {
+    padding: 30vh 0 0 0;
+    display: block;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 3rem;
+    font-style: normal;
+    line-height: 3.5rem;
+}
+
+.success-screen-content {
+    display: block;
+    color: #FFF;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: 1.5rem;
+}
+
+.success-screen-top-bar {
+    background-color: #363D63;
+    position: absolute;
+    height: 3rem;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.success-screen-homepage {
+    position: absolute;
+    margin: 0;
+    top: 0.75rem;
+    left: 0.5rem;
+    color: #ffffff;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+    .success-screen-header {
+        padding: 0;
+    }
+
+    .success-screen-homepage {
+        font-size: 24px;
+        line-height: 24px;
+        top: 1.25rem;    }
+
+    .success-screen-top-bar {
+        top: 0;
+        height: 4rem;
+    }
+}
