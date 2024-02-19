@@ -1,7 +1,7 @@
 import "../styles/signinmodal.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import { Link } from 'react-router-dom';
 
 export const SignInModal = ({ onClose }) => {
     const navigate = useNavigate();
@@ -49,6 +49,7 @@ export const SignInModal = ({ onClose }) => {
                     <input className="login-input" type="text"  name="Email" onChange={handleChange} />
                     <label className="login-label">Hasło</label>
                     <input className="login-input" type="password"  name="Password" onChange={handleChange} />
+                    <Link to="/forgot-password"><label className="login-forgot-password-label">Zapomniałeś hasła?</label></Link>
                     <button className="login-button" onClick={handleSignIn}><span className="login-button-span">Zaloguj się</span></button>
                 </form>               
         </div>
